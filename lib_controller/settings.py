@@ -154,10 +154,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static')
-]
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
