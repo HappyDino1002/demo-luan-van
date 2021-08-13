@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-ng9g1oida5a)v-8ku%hwn^rne@e(f-sm=+y)t!^ygw30v)9x2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lit-wildwood-47230.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['lit-wildwood-47230.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
@@ -103,6 +104,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
